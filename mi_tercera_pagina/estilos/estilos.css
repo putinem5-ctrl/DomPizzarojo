@@ -1,0 +1,59 @@
+/*Aqui se personaliza todo las etiqueta HTML de la pagima*/
+*{
+    margin: 0;
+    padding: 0;
+}
+/*AQUI SE PERSONALIZA EL CUERPO, LA ETIQUETA BODY*/
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:#edf7cc ;
+}
+/*AQUI SE PERSONALIZA LA CABECERA DE LA PAGINA*/
+header {
+  background-color: #d8a026;  
+  color: rgb(189, 45, 45);
+  text-align: center;
+}
+/*AQUI SE PERSONALIZA EL MENÚ DE LA PÁGINA*/
+#menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+/*AQUI PERSONALIZO LOS BOTONES*/
+#menu a{
+text-decoration: none;
+background-color:#2309b9 ;
+color: white;
+padding: 5px 20px;
+border-radius: 50px;
+font-size: bold;
+transition: all 0,3s ease;
+}
+/*CAMBIO DE COLOR DE LOS BOTONES*/
+#menu a:hover {
+    background-color: #b14513 ;
+    transform: translateY(-5px);
+}
+/*AQUI VOY A PERSONALIZAR EL CONTENEDOR*/
+#contenedor {
+    display: flex;
+    min-height: 100px;
+}
+/*AQUI PERSONALIZAR PUBLICIDAD 1 Y 2*/
+#publicidad{
+    background-color: #8b9fcb;
+    border: solid;
+    width: 20%;
+    background-color: #d8a026;
+    padding:20PX;
+}
+/*aqui personalizo en Inframe*/
+iframe{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #8b9fcb;
+}
+/*aqui perosnalizo el pie de Pagina*/

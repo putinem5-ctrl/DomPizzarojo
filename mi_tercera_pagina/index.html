@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Pizza | Sabor que Enamora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="Pizzaroja" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+        }
+        .font-brand {
+            font-family: 'Bungee', cursive;
+        }
+        .bg-red-don {
+            background-color: #e63946;
+        }
+        .text-red-don {
+            color: #e63946;
+        }
+        /* Forma de helado para las reseñas */
+        .ice-cream-shape {
+            position: relative;
+            background: #ffffff;
+            border-radius: 50% 50% 10% 10% / 60% 60% 40% 40%;
+            padding: 40px 20px;
+            width: 250px;
+            margin: 20px auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f1faee;
+        }
+        .ice-cream-cone {
+            width: 0;
+            height: 0;
+            border-left: 125px solid transparent;
+            border-right: 125px solid transparent;
+            border-top: 150px solid #e9c46a;
+            margin: -20px auto 0;
+            border-radius: 0 0 50px 50px;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #e63946 0%, #ffffff 100%);
+        }
+        .pizza-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-red-don text-white p-2 rounded-full">
+                    <span class="font-brand text-2xl">DP</span>
+                </div>
+                <h1 class="font-brand text-2xl text-red-don">Don Pizza</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-700">
+                <a href="#menu" class="hover:text-red-don transition">Menú</a>
+                <a href="#reviews" class="hover:text-red-don transition">Reseñas</a>
+                <a href="#contact" class="hover:text-red-don transition">Contacto</a>
+            </nav>
+            <button class="bg-red-don text-white px-6 py-2 rounded-full font-bold hover:bg-red-700 transition">
+                Pedir Ahora
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section con Personaje -->
+    <section class="relative bg-white py-16 overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 z-10">
+                <h2 class="text-5xl md:text-7xl font-brand text-red-don mb-6 leading-tight">
+                    ¡El Sabor de <br>la Verdad!
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Conoce a Don Pizza, el maestro detrás de la masa. Ingredientes frescos, pasión italiana y el toque secreto que nos hace únicos.
+                </p>
+                <a href="#menu" class="inline-block bg-red-don text-white text-lg px-10 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform">
+                    Ver Sabores
+                </a>
+            </div>
+            <div class="md:w-1/2 relative flex justify-center">
+                <div class="absolute w-80 h-80 bg-red-don rounded-full opacity-10 animate-pulse"></div>
+                <!-- Simulación del personaje: Un joven sosteniendo una pizza -->
+                <img id="brand-character" src="" alt="Don Pizza Personaje" class="rounded-2xl shadow-2xl z-10 w-full max-w-md hidden">
+                <div id="loading-char" class="w-80 h-96 bg-gray-200 animate-pulse rounded-2xl flex items-center justify-center text-gray-400">
+                    Cargando Personaje...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="bg-red-don py-20">
+        <div class="container mx-auto px-4 text-white">
+            <div class="text-center mb-16">
+                <h2 class="font-brand text-4xl mb-4">Nuestros Sabores Legendarios</h2>
+                <div class="h-1 w-24 bg-white mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pizza Item -->
+                <div class="pizza-card bg-white text-gray-800 p-6 rounded-3xl shadow-xl">
+                    <div class="text-4xl mb-4 text-center">🍕</div>
+                    <h3 class="font-bold text-xl mb-2">Pepperoni Supreme</h3>
+                    <p class="text-sm text-gray-500 mb-4">Doble ración de pepperoni y mucho queso mozzarella.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-don font-bold text-lg">$12.99</span>
+                        <button onclick="addToCart('Pepperoni')" class="bg-red-don text-white p-2 rounded-full hover:bg-red-700">
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pizza-card bg-white text-gray-800 p-6 rounded-3xl shadow-xl">
+                    <div class="text-4xl mb-4 text-center">🍍</div>
+                    <h3 class="font-bold text-xl mb-2">Hawaiana Pro</h3>
+                    <p class="text-sm text-gray-500 mb-4">Jamón ahumado y piña fresca seleccionada.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-don font-bold text-lg">$11.50</span>
+                        <button onclick="addToCart('Hawaiana')" class="bg-red-don text-white p-2 rounded-full hover:bg-red-700">
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pizza-card bg-white text-gray-800 p-6 rounded-3xl shadow-xl">
+                    <div class="text-4xl mb-4 text-center">🍄</div>
+                    <h3 class="font-bold text-xl mb-2">Veggie Lover</h3>
+                    <p class="text-sm text-gray-500 mb-4">Champiñones, pimientos, cebolla y aceitunas.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-don font-bold text-lg">$10.99</span>
+                        <button onclick="addToCart('Veggie')" class="bg-red-don text-white p-2 rounded-full hover:bg-red-700">
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pizza-card bg-white text-gray-800 p-6 rounded-3xl shadow-xl">
+                    <div class="text-4xl mb-4 text-center">🥓</div>
+                    <h3 class="font-bold text-xl mb-2">Meat Feast</h3>
+                    <p class="text-sm text-gray-500 mb-4">Salchicha, carne molida, tocino y jamón.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-don font-bold text-lg">$14.50</span>
+                        <button onclick="addToCart('Meat')" class="bg-red-don text-white p-2 rounded-full hover:bg-red-700">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Ice Cream Shape) -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-brand text-red-don text-4xl text-center mb-16">Voces de Don Pizza</h2>
+            
+            <div class="flex flex-wrap justify-center gap-10">
+                <!-- Review 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="ice-cream-shape text-center">
+                        <p class="italic text-gray-600">"¡La mejor masa que he probado en años!"</p>
+                        <div class="mt-4 font-bold text-red-don">- Juan Pérez</div>
+                        <div class="text-yellow-400 mt-2">★★★★★</div>
+                    </div>
+                    <div class="ice-cream-cone"></div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="ice-cream-shape text-center">
+                        <p class="italic text-gray-600">"El servicio es rápido y la pizza llega muy caliente."</p>
+                        <div class="mt-4 font-bold text-red-don">- María G.</div>
+                        <div class="text-yellow-400 mt-2">★★★★☆</div>
+                    </div>
+                    <div class="ice-cream-cone"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section id="contact" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="bg-white p-10 rounded-3xl shadow-2xl">
+                <h3 class="font-brand text-red-don text-2xl mb-6 text-center">Déjanos tu Comentario</h3>
+                <form id="commentForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Nombre</label>
+                        <input type="text" required class="w-full border-2 border-gray-200 rounded-xl px-4 py-2 focus:border-red-don outline-none transition" placeholder="Tu nombre">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Comentario</label>
+                        <textarea required rows="4" class="w-full border-2 border-gray-200 rounded-xl px-4 py-2 focus:border-red-don outline-none transition" placeholder="¿Qué te pareció Don Pizza?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-red-don text-white font-bold py-4 rounded-xl hover:bg-red-700 transition shadow-lg">
+                        Enviar Comentario
+                    </button>
+                </form>
+                
+                <div id="successMsg" class="hidden mt-6 bg-green-100 text-green-700 p-4 rounded-xl text-center">
+                    ¡Gracias! Tu comentario ha sido recibido.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-don text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-brand text-xl mb-4">Don Pizza © 2025</p>
+            <p class="text-sm opacity-75">Sabor que enamora a cada bocado.</p>
+        </div>
+    </footer>
+
+    <!-- Notificación Flotante -->
+    <div id="notification" class="fixed bottom-10 right-10 bg-black text-white px-6 py-3 rounded-full shadow-2xl translate-y-24 transition-transform duration-300">
+        ¡Pizza añadida al carrito! 🍕
+    </div>
+
+    <script>
+        const apiKey = ""; // La clave se inyectará automáticamente
+
+        // Generar personaje con IA
+        async function generateCharacter() {
+            const prompt = "A friendly, charismatic young chef with a chef hat, holding a steaming delicious pepperoni pizza toward the camera, energetic pose, vibrant red and white background, high quality, 3d render style, mascot character";
+            const imgEl = document.getElementById('brand-character');
+            const loadingEl = document.getElementById('loading-char');
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        instances: [{ prompt: prompt }],
+                        parameters: { sampleCount: 1 }
+                    })
+                });
+
+                const result = await response.json();
+                if (result.predictions && result.predictions[0]) {
+                    imgEl.src = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                    imgEl.classList.remove('hidden');
+                    loadingEl.classList.add('hidden');
+                }
+            } catch (error) {
+                console.error("Error al generar personaje:", error);
+                loadingEl.innerText = "Error al cargar personaje";
+            }
+        }
+
+        // Manejo del formulario de comentarios
+        document.getElementById('commentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('commentForm').classList.add('opacity-50', 'pointer-events-none');
+            document.getElementById('successMsg').classList.remove('hidden');
+        });
+
+        // Simulación de Carrito
+        function addToCart(flavor) {
+            const notif = document.getElementById('notification');
+            notif.classList.remove('translate-y-24');
+            
+            setTimeout(() => {
+                notif.classList.add('translate-y-24');
+            }, 3000);
+        }
+
+        window.onload = generateCharacter;
+    </script>
+</body>
+</html>
